@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.kica.kwallet",
+    "sha256_cert_fingerprints": [
+      "19:B2:FF:4E:05:E0:81:74:ED:D7:41:23:EC:B4:21:33:1F:97:54:CB:F8:99:65:9E:80:53:8E:7A:B2:7D:40:F8"
+    ]
+  }
+}]
