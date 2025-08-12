@@ -4,7 +4,8 @@
     "namespace": "android_app",
     "package_name": "com.kica.kwallet",
     "sha256_cert_fingerprints": [
-      "19:B2:FF:4E:05:E0:81:74:ED:D7:41:23:EC:B4:21:33:1F:97:54:CB:F8:99:65:9E:80:53:8E:7A:B2:7D:40:F8"
+      "19:B2:FF:4E:05:E0:81:74:ED:D7:41:23:EC:B4:21:33:1F:97:54:CB:F8:99:65:9E:80:53:8E:7A:B2:7D:40:F8",
+      "2D:E3:7D:4D:00:43:38:CC:4D:35:87:C5:92:94:4B:A8:26:DD:D5:10:BE:E8:28:8C:99:37:6E:E6:6C:49:19:46"
     ]
   }
 }]
