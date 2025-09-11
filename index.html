@@ -1,508 +1,241 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KICA 증명 런칭 이벤트</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
-            color: white;
-            line-height: 1.5;
-        }
-        
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* 헤더 섹션 */
-        .header-section {
-            text-align: center;
-            padding: 40px 20px 30px;
-            position: relative;
-        }
-        
-        .main-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .sub-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .event-description {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        
-        /* 선물 상자 아이콘 - 애니메이션 제거 */
-        .gift-icon {
-            width: 120px;
-            height: 120px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .gift-icon::before {
-            content: '🎁';
-        }
-        
-        /* 호버 시에만 가벼운 애니메이션 */
-        .gift-icon:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-        
-        /* 날짜 배지 */
-        .date-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 20px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        /* 중간 섹션 */
-        .middle-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px 20px;
-            margin: 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .middle-title {
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .info-item:last-child {
-            border-bottom: none;
-        }
-        
-        .info-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .info-value {
-            font-size: 14px;
-            font-weight: 600;
-            text-align: right;
-            flex: 1;
-            margin-left: 10px;
-        }
-        
-        /* 혜택 섹션 */
-        .benefit-section {
-            padding: 30px 20px;
-            text-align: center;
-        }
-        
-        .benefit-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-highlight {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .benefit-text {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .benefit-sub {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-        
-        /* 참가 방법 */
-        .how-to-section {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            padding: 25px 20px;
-            margin: 20px;
-            border-radius: 15px;
-        }
-        
-        .how-to-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #2c5282;
-        }
-        
-        /* 동의 섹션 */
-        .consent-section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .consent-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .consent-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        
-        .consent-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-        
-        .consent-item label {
-            cursor: pointer;
-            line-height: 1.3;
-        }
-        
-        .required {
-            color: #FFD700;
-            font-weight: bold;
-        }
-        
-        /* 참여 버튼 */
-        .participate-section {
-            padding: 20px;
-        }
-        
-        .participate-btn {
-            width: 100%;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #333;
-            border: none;
-            border-radius: 15px;
-            padding: 18px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
-        }
-        
-        .participate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
-        }
-        
-        .participate-btn:disabled {
-            background: #666;
-            color: #999;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .success-message {
-            display: none;
-            background: #2ecc71;
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        /* 장식 요소 - 애니메이션 제거 */
-        .decoration {
-            position: absolute;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-        
-        .decoration-1 {
-            top: 100px;
-            right: 20px;
-            font-size: 40px;
-        }
-        
-        .decoration-2 {
-            bottom: 200px;
-            left: 20px;
-            font-size: 30px;
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                max-width: 100%;
-            }
-            
-            .main-title {
-                font-size: 24px;
-            }
-            
-            .gift-icon {
-                width: 100px;
-                height: 100px;
-                font-size: 50px;
-            }
-        }
-    </style>
+    <!-- 250901 추가 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+
+    <title>event</title>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/landing.css">
+    <script src="../js/jquery-3.1.0.min.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <!-- 장식 요소 -->
-        <div class="decoration decoration-1">✨</div>
-        <div class="decoration decoration-2">🎊</div>
-        
-        <!-- 헤더 섹션 -->
-        <div class="header-section">
-            <h1 class="main-title">KICA 증명</h1>
-            <h2 class="sub-title">런칭 이벤트</h2>
-            <p class="event-description">디지털증명서 제출 시 라치 코스 증정!</p>
-            
-            <div class="gift-icon"></div>
-            
-            <div class="date-badge">09.18 - 10.24</div>
+
+    <div>
+        <div class="woori_landing_wrap">
+
+            <div class="woori_landing_contents">
+                <div class="woori_landing_contents_inner">
+                    <!-- 닫힘버튼 유무에 따라 주석 -->
+                    <!-- <button class="woori_close"></button> -->
+                    <!-- 닫힘버튼 유무에 따라 주석 -->
+
+                    <img src="../img/ki_1.png" alt="">
+                </div>
+
+                <div class="woori_landing_contents_inner join">
+                    <img src="../img/ki_2.png" alt="" class="tit">
+                    <div class="drop_down">
+                        <!-- 약관 동의 리스트 -->
+                        <h1>마케팅 정보 수집 및 활용 동의</h1>
+                        <ul class="agree-list" role="list">
+                            <li class="agree-item">
+                                <label class="agree-head">
+                                    <input type="checkbox" name="tos1" />
+                                    <span class="agree-title">(필수) 개인정보 수집 및 이용 동의</span>
+                                </label>
+                                <button class="arrow" aria-expanded="false" aria-controls="panel-1"
+                                    title="상세 보기"></button>
+                                <div class="agree-panel privacy-consent" id="panel-1" aria-hidden="true">
+                                    <h2 class="sr-only">개인정보 수집·이용 동의 안내</h2>
+                                    <ol>
+                                        <li>
+                                            <h3>수집·이용의 목적</h3>
+                                            <ul>
+                                                <li>이벤트 경품 제공</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <h3>수집·이용 항목</h3>
+                                            <ul>
+                                                <li><strong>필수적 정보</strong>: 이름, 휴대폰 번호</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <h3>보유·이용 기간</h3>
+                                            <p>
+                                                수집한 개인정보는 수집·이용에 관한 동의 일로부터 수집·이용 목적 달성 전까지
+                                                또는 귀하가 동의를 철회할 때까지 보유·이용됩니다.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <h3>동의 거부권 및 불이익</h3>
+                                            <p>
+                                                귀하는 위와 같은 정보의 수집·이용을 거부할 수 있습니다. 다만, 필수적 수집·이용에
+                                                관하여 동의하지 않을 경우, 이벤트 당첨이 불가능할 수 있습니다.
+                                            </p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </li>
+
+                            <li class="agree-item">
+                                <label class="agree-head">
+                                    <input type="checkbox" name="tos2" />
+                                    <span class="agree-title">(필수) 마케팅 정보 수신 동의</span>
+                                </label>
+                                <button class="arrow" aria-expanded="false" aria-controls="panel-2"
+                                    title="상세 보기"></button>
+                                <div class="agree-panel privacy-consent" id="panel-2" aria-hidden="true">
+                                    <h2 class="sr-only"> 마케팅 정보 수신 동의 안내</h2>
+
+                                    <ol>
+                                        <li>
+                                            <h3>수집·이용의 목적</h3>
+                                            <ul>
+                                                <li>이벤트 경품 제공</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <h3>수집·이용 항목</h3>
+                                            <ul>
+                                                <li><strong>필수적 정보</strong>: 이름, 휴대폰 번호</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <h3>보유·이용 기간</h3>
+                                            <p>
+                                                수집한 개인정보는 수집·이용에 관한 동의 일로부터 수집·이용 목적 달성 전까지
+                                                또는 귀하가 동의를 철회할 때까지 보유·이용됩니다.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <h3>동의 거부권 및 불이익</h3>
+                                            <p>
+                                                귀하는 위와 같은 정보의 수집·이용을 거부할 수 있습니다. 다만, 필수적 수집·이용에
+                                                관하여 동의하지 않을 경우, 이벤트 당첨이 불가능할 수 있습니다.
+                                            </p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </li>
+
+                            <li class="agree-item">
+                                <label class="agree-head">
+                                    <input type="checkbox" name="tos3" />
+                                    <span class="agree-title">(필수) 앱 PUSH 수신 동의</span>
+                                </label>
+                                <button class="arrow" aria-expanded="false" aria-controls="panel-3"
+                                    title="상세 보기"></button>
+                                <div class="agree-panel privacy-consent" id="panel-3" aria-hidden="true">
+                                    <h2 class="sr-only">앱 PUSH 수신 동의 안내</h2>
+
+                                    <ol>
+                                        <li>
+                                            <h3>수집·이용의 목적</h3>
+                                            <ul>
+                                                <li>이벤트 경품 제공</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <h3>수집·이용 항목</h3>
+                                            <ul>
+                                                <li><strong>필수적 정보</strong>: 이름, 휴대폰 번호</li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <h3>보유·이용 기간</h3>
+                                            <p>
+                                                수집한 개인정보는 수집·이용에 관한 동의 일로부터 수집·이용 목적 달성 전까지
+                                                또는 귀하가 동의를 철회할 때까지 보유·이용됩니다.
+                                            </p>
+                                        </li>
+
+                                        <li>
+                                            <h3>동의 거부권 및 불이익</h3>
+                                            <p>
+                                                귀하는 위와 같은 정보의 수집·이용을 거부할 수 있습니다. 다만, 필수적 수집·이용에
+                                                관하여 동의하지 않을 경우, 이벤트 당첨이 불가능할 수 있습니다.
+                                            </p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- 확인 버튼 -->
+                        <button id="agreeBtn" class="btn-disabled">응모하기</button>
+                    </div>
+                    <script>
+                        $(function () {
+                            let isAnimating = false;
+
+                            // 화살표 클릭 → 하나만 열리는 아코디언
+                            $(".agree-list").on("click", ".arrow", function () {
+                                if (isAnimating) return;
+                                isAnimating = true;
+
+                                const $btn = $(this);
+                                const panelId = $btn.attr("aria-controls");
+                                const $panel = $("#" + panelId);
+
+                                // 진행 중 애니메이션 큐 제거
+                                $(".agree-panel").stop(true, true);
+
+                                if ($panel.is(":visible")) {
+                                    // 현재 열려있으면 닫기
+                                    $panel.slideUp(220).promise().done(() => {
+                                        $btn.attr("aria-expanded", "false");
+                                        $panel.attr("aria-hidden", "true");
+                                        isAnimating = false;
+                                    });
+                                } else {
+                                    // 다른 패널 닫고 현재만 열기
+                                    const $others = $(".agree-panel:visible").not($panel);
+                                    const $otherBtns = $(".arrow").not($btn);
+
+                                    $others.slideUp(200).promise().done(() => {
+                                        $otherBtns.attr("aria-expanded", "false");
+                                        $others.attr("aria-hidden", "true");
+
+                                        $panel.slideDown(220).promise().done(() => {
+                                            $btn.attr("aria-expanded", "true");
+                                            $panel.attr("aria-hidden", "false");
+                                            isAnimating = false;
+                                        });
+                                    });
+                                }
+                            });
+
+                            // 체크박스 모두 체크되면 버튼 활성화
+                            const $checkboxes = $(".agree-item input[type=checkbox]");
+                            const $button = $("#agreeBtn");
+
+                            function updateButton() {
+                                const allChecked = $checkboxes.length === $checkboxes.filter(":checked").length;
+                                if (allChecked) {
+                                    $button.addClass("active").prop("disabled", false);
+                                } else {
+                                    $button.removeClass("active").prop("disabled", true);
+                                }
+                            }
+                            $checkboxes.on("change", updateButton);
+                            updateButton(); // 초기 상태 반영
+                        });
+
+                    </script>
+                </div>
+
+                <div class="woori_landing_contents_inner" style="background-color: #fff;">
+                    <img src="../img/ki_4.png" alt="">
+
+                </div>
+            </div>
         </div>
-        
-        <!-- 이벤트 정보 -->
-        <div class="middle-section">
-            <h3 class="middle-title">🎉 증명서 내고, 굿즈는 내고!</h3>
-            
-            <div class="info-item">
-                <span class="info-label">이벤트 기간</span>
-                <span class="info-value">09.18(목) ~ 10.24(금)</span>
-            </div>
-            
-            <div class="info-item">
-                <span class="info-label">이벤트 대상</span>
-                <span class="info-value">KICA증명 이용 회원</span>
-            </div>
-            
-            <div class="info-item">
-                <span class="info-label">참여 방법</span>
-                <span class="info-value">이벤트 페이지에서 응모하기 클릭</span>
-            </div>
-            
-            <div class="info-item">
-                <span class="info-label">당첨자 발표</span>
-                <span class="info-value">10.27(일) 개별 안내</span>
-            </div>
-            
-            <div class="info-item">
-                <span class="info-label">경품 발송</span>
-                <span class="info-value">10.29(수) 개별 발송</span>
-            </div>
-        </div>
-        
-        <!-- 혜택 -->
-        <div class="benefit-section">
-            <h3 class="benefit-title">✨ 증명서만 제출해도<br>한정판 굿즈 기 팍팍!</h3>
-            
-            <div class="benefit-highlight">
-                <div class="benefit-text">라레</div>
-                <div class="benefit-text">라지컵</div>
-                <div class="benefit-sub">+ 국내 최초 출시</div>
-            </div>
-        </div>
-        
-        <!-- 참가 방법 -->
-        <div class="how-to-section">
-            <h3 class="how-to-title">📋 지금 바로 참여하기!</h3>
-            <p style="font-size: 14px; color: #666;">
-                • 이벤트 기간 내 KICA 증명 서비스를 이용해 주세요<br>
-                • 아래 동의 항목을 확인하고 참여하기 버튼을 클릭하세요<br>
-                • 당첨자에게는 개별 연락드립니다
-            </p>
-        </div>
-        
-        <!-- 동의사항 -->
-        <div class="consent-section">
-            <div class="consent-title">📋 참여 동의사항</div>
-            
-            <div class="consent-item">
-                <input type="checkbox" id="consent1" required>
-                <label for="consent1">
-                    <span class="required">[필수]</span> 개인정보 수집 및 이용에 동의합니다.
-                </label>
-            </div>
-            
-            <div class="consent-item">
-                <input type="checkbox" id="consent2" required>
-                <label for="consent2">
-                    <span class="required">[필수]</span> 이벤트 참여 약관에 동의합니다.
-                </label>
-            </div>
-            
-            <div class="consent-item">
-                <input type="checkbox" id="consent3">
-                <label for="consent3">
-                    [선택] 마케팅 정보 수신에 동의합니다.
-                </label>
-            </div>
-        </div>
-        
-        <!-- 참여 버튼 -->
-        <div class="participate-section">
-            <button class="participate-btn" id="participateBtn" disabled>
-                응모하기
-            </button>
-            
-            <div class="success-message" id="successMessage">
-                🎊 이벤트 참여가 완료되었습니다!<br>
-                당첨자 발표를 기다려주세요!
-            </div>
-        </div>
+
     </div>
 
-    <script>
-        console.log('KICA 이벤트 페이지 로드됨');
-        
-        // 필수 동의 체크박스들
-        const requiredCheckboxes = document.querySelectorAll('#consent1, #consent2');
-        const participateBtn = document.getElementById('participateBtn');
-        const successMessage = document.getElementById('successMessage');
-        
-        // 동의 상태 확인 함수
-        function checkConsents() {
-            const allRequiredChecked = Array.from(requiredCheckboxes).every(cb => cb.checked);
-            participateBtn.disabled = !allRequiredChecked;
-            console.log('동의 상태 확인:', allRequiredChecked);
-        }
-        
-        // 각 체크박스에 이벤트 리스너 추가
-        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
-            checkbox.addEventListener('change', function() {
-                console.log(`체크박스 ${index + 1} 변경:`, this.checked);
-                checkConsents();
-            });
-        });
-        
-        // 참여하기 버튼 클릭 이벤트
-        participateBtn.addEventListener('click', function() {
-            console.log('응모하기 버튼 클릭됨');
-            
-            // 참여 데이터 수집
-            const participateData = {
-                eventId: 'kica_launch_2024',
-                timestamp: new Date().toISOString(),
-                consents: {
-                    privacy: document.getElementById('consent1').checked,
-                    terms: document.getElementById('consent2').checked,
-                    marketing: document.getElementById('consent3').checked
-                }
-            };
-            
-            console.log('참여 데이터:', participateData);
-            
-            try {
-                // Android 앱으로 데이터 전송
-                if (window.AndroidInterface && typeof window.AndroidInterface.onEventParticipate === 'function') {
-                    console.log('Android 인터페이스 호출 시도');
-                    window.AndroidInterface.onEventParticipate(JSON.stringify(participateData));
-                    console.log('Android 앱으로 데이터 전송 성공');
-                } 
-                // iOS 앱으로 데이터 전송
-                else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.eventParticipate) {
-                    console.log('iOS 인터페이스 호출 시도');
-                    window.webkit.messageHandlers.eventParticipate.postMessage(participateData);
-                    console.log('iOS 앱으로 데이터 전송 성공');
-                }
-                // 일반 웹 브라우저인 경우
-                else {
-                    console.log('앱 환경이 아닙니다. 테스트 모드로 실행');
-                    // 개발 환경에서는 alert 대신 console.log만 사용
-                    console.log('테스트: 응모하기 완료', participateData);
-                }
-                
-                // UI 업데이트
-                this.style.display = 'none';
-                successMessage.style.display = 'block';
-                console.log('UI 업데이트 완료');
-                
-                // 3초 후 웹뷰 닫기 시도
-                setTimeout(() => {
-                    console.log('웹뷰 닫기 시도');
-                    if (window.AndroidInterface && typeof window.AndroidInterface.closeWebView === 'function') {
-                        window.AndroidInterface.closeWebView();
-                    } else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView) {
-                        window.webkit.messageHandlers.closeWebView.postMessage({});
-                    } else {
-                        console.log('웹뷰 닫기 기능을 사용할 수 없습니다.');
-                    }
-                }, 3000);
-                
-            } catch (error) {
-                console.error('앱 통신 오류:', error);
-                // 오류 발생 시에도 UI는 업데이트
-                this.style.display = 'none';
-                successMessage.style.display = 'block';
-            }
-        });
-        
-        // 페이지 로드 완료 시 앱에 알림
-        window.addEventListener('load', function() {
-            console.log('페이지 로드 완료');
-            try {
-                if (window.AndroidInterface && typeof window.AndroidInterface.onPageLoaded === 'function') {
-                    window.AndroidInterface.onPageLoaded();
-                } else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.pageLoaded) {
-                    window.webkit.messageHandlers.pageLoaded.postMessage({});
-                }
-            } catch (error) {
-                console.error('페이지 로드 알림 오류:', error);
-            }
-        });
-    </script>
 </body>
+
 </html>
