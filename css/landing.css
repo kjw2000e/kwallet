@@ -1,4 +1,6 @@
 
+
+
 .only_mob{
     display: none !important;
 }
@@ -55,16 +57,21 @@ z-index: 10;
 /* 드롭다운 레이아웃 */
 .join{
 width: 100%;
-background-image: url('../img/ki_5.png');
-background-position: 1% center;
+background: url(../img/ki_02_02.png);
+background-position: center top;
+background-size: 105%;
 display: flex;
 flex-direction: column;
 object-fit: contain;
+ position: relative;
+  z-index: 2;
+  padding: 200px 0 60px 0 ;
+
 }
-.join .tit{
-    width: 60%;
-    margin: 40px auto 0px auto;
-    
+
+ .join > * {
+  position: relative;
+  z-index: 2;
 }
 .drop_down{
     width: 90%;
@@ -72,23 +79,23 @@ object-fit: contain;
   border-radius: 20px;
 background: #FFF;
     max-width: 600px;
-box-shadow: 0 4px 40px 0 #3DA3FF;
+box-shadow: 0 4px 40px 0 #DFADAA;
 display: flex;
-margin: 40px auto;
+margin: 0 auto 40px auto;
 padding: 40px 30px;
 
 flex-direction: column;
 align-items: flex-start;
 }
 .drop_down h1{
-color: #0071FB;
-font-size: 2rem;
+color: #B50303;
+font-size: 1.5rem;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
 letter-spacing: -1.76px;
 padding-bottom: 20px;
-border-bottom: 1px solid #BED1FF;
+border-bottom: 1px solid #B50303;
 margin-bottom: 20px;
 width: 100%;
 }
@@ -106,7 +113,7 @@ gap: 16px;
     background:#fff;
     display:grid;
     grid-template-columns:1fr auto;
-    gap:8px;align-items:center;
+    gap:8px;align-items:flex-start;
     color: #000;
 font-size: 1.4rem;
 font-style: normal;
@@ -115,9 +122,9 @@ line-height: 1.2;
 letter-spacing: -1.44px;
 }
 .agree-head{
-    display:flex;gap:10px;align-items:center;
+    display:flex;gap:10px;align-items:flex-start;
     color: #000;
-font-size: 1.4rem;
+font-size: 1.2rem;
 font-style: normal;
 font-weight: 500;
 line-height: 1.2;
@@ -152,31 +159,37 @@ grid-column:1 / -1}
 input[type="checkbox" i] {
     width: 24px;
     height: 24px;
+    margin-top: 4px;
+        accent-color: #B50303; 
 }
+
 #agreeBtn {
     width: 100%;
   padding: 1rem 20px;
   margin-top: 20px;
   border: none;
   border-radius: 100px;
-font-size: 2rem;
+font-size: 1.5rem;
   cursor: default;
-  background-color: #ccc;   /* 비활성 색상 */
-  color: #fff;
+  background-color: #E7E7E7;   /* 비활성 색상 */
+  color: #777777;
   transition: background-color 0.2s;
   cursor: unset;
   font-weight: 700;
 }
 #agreeBtn.active {
-  color: #00257D;
-
-  background-color: #FFE62B; /* 활성 색상 (예: 보라색) */
+  color: #fff;
+  background-color: #B50303; /* 활성 색상 (예: 보라색) */
   cursor: pointer;
 }
-.privacy-consent ol { margin: 0; padding-left: 1.25rem; list-style: decimal;}
-.privacy-consent h3 { margin: .5rem 0; font-size: 1.2rem; }
-.privacy-consent p { margin: .25rem 0 .75rem; line-height: 1.6; }
-.privacy-consent ul { margin: .25rem 0 .75rem; padding-left: 1.1rem; list-style: disc;}
+.privacy-contents{
+    word-break: keep-all;
+}
+.privacy-contents ol { margin: 0; padding-left: 1.25rem; list-style: decimal;}
+.privacy-contents h3 { margin: .5rem 0; font-size: 1.12rem; }
+.privacy-contents p { margin: .25rem 0 .75rem; line-height: 1.6; }
+.privacy-contents strong { font-weight: bold; }
+.privacy-contents ul { margin: .25rem 0 .75rem; padding-left: 1.1rem; list-style: disc;}
 .sr-only {
   position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
   clip:rect(0,0,0,0); white-space:nowrap; border:0;
@@ -214,16 +227,16 @@ font-size: 2rem;
     top: 10px;
 }
 .drop_down{
-    padding: 1.2rem;
+    padding: 1.7rem 1.2rem;
 }
 .drop_down h1{
-font-size: 1.5rem;
+font-size: 1.3rem;
 padding-bottom: 16px;
 margin-bottom: 8px;
 
 }
 .agree-head{
-font-size: 1.1rem;
+font-size: 1.05rem;
 
 }
 
@@ -240,33 +253,165 @@ input[type="checkbox" i] {
     width: 20px;
     height: 20px;
 }
-.privacy-consent h3{
+.privacy-contents h3{
     font-size: 1rem;
 
 }
-.privacy-consent ul,.privacy-consent p {
+.privacy-contents ul,.privacy-contents p {
     font-size:0.95rem;
 
 }
 }
+@media screen and (max-width: 450px) {
+
+.join{
+padding: 120px 0 0px 0;
+}
+}
 @media screen and (max-width: 340px) {
     .drop_down h1{
-font-size: 1.2rem;
+font-size: 1.1rem;
 padding-bottom: 8px;
 margin-bottom: 4px;
 
 }
     .agree-head{
-font-size: 0.95rem;
+font-size: 0.9rem;
 
 }
-.privacy-consent h3{
+.privacy-contents h3{
     font-size:0.9rem;
 
 }
-.privacy-consent ul,.privacy-consent p {
+.privacy-contents ul,.privacy-contents p {
 font-size: 0.85rem;
 
 }
 
+}
+#popup{
+    display: none;
+}
+.popup-overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 2.25rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup-content p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #2B2F34;
+    text-align: center;
+    font-family: 'DAKI';
+}
+
+.popup-content button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 50px;
+    font-family: 'DAKI';
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    border-radius: 0.75rem;
+width: 100%;
+box-sizing: border-box;
+    margin-top: 1.5rem;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+
+
+/* 1. 부모 요소 설정 (눈이 이 영역 안에서만 내리게 함) */
+.snow {
+  position: relative; /* 자식(눈)의 기준점 */
+  overflow: hidden;   /* 영역 밖으로 나가는 눈 숨김 */
+}
+
+/* 2. 눈 만들기 (::before는 작은 눈, ::after는 큰 눈) */
+.snow::before,
+.snow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* 눈이 클릭을 방해하지 않도록 설정 */
+  z-index: 1; /* 이미지 위에 눈이 오도록 설정 */
+  border-radius: 50%; /* 둥근 모양 */
+  
+  /* 눈 입자 만들기 (방사형 그라데이션으로 원을 여러 개 그림) */
+  background-image: 
+    radial-gradient(4px 4px at 10% 10%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 20% 40%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 30% 70%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 40% 20%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 50% 60%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 60% 30%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 70% 80%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 80% 10%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 90% 50%, #fff 50%, transparent 51%),
+    radial-gradient(4px 4px at 55% 90%, #fff 50%, transparent 51%);
+    
+  background-size: 500px 500px; /* 배경 패턴 크기 */
+  animation: snowFall 10s linear infinite; /* 애니메이션 적용 */
+}
+
+/* 3. 큰 눈 (::after) - 조금 더 크고 빠르게 설정하여 원근감 효과 */
+.snow::after {
+  /* 위치를 조금 다르게 섞어줌 */
+  background-image: 
+    radial-gradient(6px 6px at 15% 15%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 25% 45%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 35% 75%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 45% 25%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 55% 65%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 65% 35%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 75% 85%, #fff 50%, transparent 51%),
+    radial-gradient(6px 6px at 85% 15%, #fff 50%, transparent 51%);
+    
+  background-size: 600px 600px;
+  animation-duration: 7s; /* 더 빨리 떨어짐 */
+  opacity: 0.7; /* 약간 투명하게 */
+}
+
+/* 4. 애니메이션 키프레임 (위에서 아래로 이동) */
+@keyframes snowFall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 1000px; /* 배경을 아래로 이동시켜 눈 내리는 효과 */
+  }
 }

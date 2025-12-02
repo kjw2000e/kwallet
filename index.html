@@ -8,9 +8,9 @@
 
     <title>event</title>
 
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/landing.css">
-    <script src="./js/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/css/landing.css">
+    <script src="./static/js/jquery-3.1.0.min.js"></script>
 </head>
 
 <body>
@@ -19,16 +19,16 @@
         <div class="woori_landing_wrap">
 
             <div class="woori_landing_contents">
-                <div class="woori_landing_contents_inner">
+                <div class="woori_landing_contents_inner snow">
                     <!-- 닫힘버튼 유무에 따라 주석 -->
                     <!-- <button class="woori_close"></button> -->
                     <!-- 닫힘버튼 유무에 따라 주석 -->
 
-                    <img src="./img/ki_1.png" alt="">
+                    <img src="./static/img/ki_02_01.png" alt="">
                 </div>
 
                 <div class="woori_landing_contents_inner join">
-                    <img src="./img/ki_2.png" alt="" class="tit">
+                    <!-- <img src="./static/img/ki_02_02.png" alt="" class=""> -->
                     <div class="drop_down">
                         <!-- 약관 동의 리스트 -->
                         <h1>마케팅 정보 수집 및 활용 동의</h1>
@@ -36,136 +36,66 @@
                             <li class="agree-item">
                                 <label class="agree-head">
                                     <input type="checkbox" name="tos1" />
-                                    <span class="agree-title">(필수) 개인정보 수집 및 이용 동의</span>
+                                    <span class="agree-title">(필수) 개인정보 수집 및 이용 동의
+                                        <!-- 250916 수정 -->
+                                        <br>
+                                        <span style="color: #777777;">(이벤트 참여 및 경품 지급 목적)</span>
+                                        <!-- 250916 수정 -->
+                                    </span>
                                 </label>
                                 <button class="arrow" aria-expanded="false" aria-controls="panel-1"
                                     title="상세 보기"></button>
-                                <div class="agree-panel privacy-consent" id="panel-1" aria-hidden="true">
+                                <div class="agree-panel privacy-contents" id="panel-1" aria-hidden="true">
                                     <h2 class="sr-only">개인정보 수집·이용 동의 안내</h2>
+                                    <p> 한국정보인증㈜은 이벤트 응모자 관리, 당첨자 선정 및 안내, 경품 제공을 위하여 아래와 같이 개인정보를 수집·이용합니다.</p>
                                     <ol>
                                         <li>
-                                            <h3>수집·이용의 목적</h3>
+                                            <h3>수집·이용 목적</h3>
                                             <ul>
-                                                <li>이벤트 경품 제공</li>
+                                                <li>이벤트 응모 및 경품 제공</li>
                                             </ul>
                                         </li>
 
                                         <li>
-                                            <h3>수집·이용 항목</h3>
+                                            <h3>수집·이용하는 개인정보의 항목</h3>
                                             <ul>
-                                                <li><strong>필수적 정보</strong>: 이름, 휴대폰 번호</li>
+                                                <li> 이름, 휴대폰 번호
+                                                    <br> ※ 당첨자의 경우 경품 배송을 위해 별도로 주소를 추가 수집할 수 있음
+                                                    <br>* 경품 배송을 위해 배송업체(에스오로지스)에 당첨자의 개인정보가 제공될 수 있음
+
+                                                </li>
                                             </ul>
                                         </li>
 
                                         <li>
-                                            <h3>보유·이용 기간</h3>
-                                            <p>
-                                                수집한 개인정보는 수집·이용에 관한 동의 일로부터 수집·이용 목적 달성 전까지
-                                                또는 귀하가 동의를 철회할 때까지 보유·이용됩니다.
-                                            </p>
-                                        </li>
-
-                                        <li>
-                                            <h3>동의 거부권 및 불이익</h3>
-                                            <p>
-                                                귀하는 위와 같은 정보의 수집·이용을 거부할 수 있습니다. 다만, 필수적 수집·이용에
-                                                관하여 동의하지 않을 경우, 이벤트 당첨이 불가능할 수 있습니다.
-                                            </p>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </li>
-
-                            <li class="agree-item">
-                                <label class="agree-head">
-                                    <input type="checkbox" name="tos2" />
-                                    <span class="agree-title">(필수) 마케팅 정보 수신 동의</span>
-                                </label>
-                                <button class="arrow" aria-expanded="false" aria-controls="panel-2"
-                                    title="상세 보기"></button>
-                                <div class="agree-panel privacy-consent" id="panel-2" aria-hidden="true">
-                                    <h2 class="sr-only"> 마케팅 정보 수신 동의 안내</h2>
-
-                                    <ol>
-                                        <li>
-                                            <h3>수집·이용의 목적</h3>
+                                            <h3>개인정보의 보유 및 이용 기간</h3>
                                             <ul>
-                                                <li>이벤트 경품 제공</li>
+                                                <li><strong>이용 목적 달성 후 1개월 내 파기</strong>
+                                                </li>
                                             </ul>
                                         </li>
 
                                         <li>
-                                            <h3>수집·이용 항목</h3>
+                                            <h3>동의를 거부할 권리와 거부에 따른 불이익</h3>
                                             <ul>
-                                                <li><strong>필수적 정보</strong>: 이름, 휴대폰 번호</li>
+                                                <li>이용자는 위 개인정보 수집·이용에 대한 동의를 거부할 권리가 있습니다. 다만, 거부 시 이벤트 응모가 불가능합니다.
+                                                </li>
                                             </ul>
-                                        </li>
-
-                                        <li>
-                                            <h3>보유·이용 기간</h3>
-                                            <p>
-                                                수집한 개인정보는 수집·이용에 관한 동의 일로부터 수집·이용 목적 달성 전까지
-                                                또는 귀하가 동의를 철회할 때까지 보유·이용됩니다.
-                                            </p>
-                                        </li>
-
-                                        <li>
-                                            <h3>동의 거부권 및 불이익</h3>
-                                            <p>
-                                                귀하는 위와 같은 정보의 수집·이용을 거부할 수 있습니다. 다만, 필수적 수집·이용에
-                                                관하여 동의하지 않을 경우, 이벤트 당첨이 불가능할 수 있습니다.
-                                            </p>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </li>
-
-                            <li class="agree-item">
-                                <label class="agree-head">
-                                    <input type="checkbox" name="tos3" />
-                                    <span class="agree-title">(필수) 앱 PUSH 수신 동의</span>
-                                </label>
-                                <button class="arrow" aria-expanded="false" aria-controls="panel-3"
-                                    title="상세 보기"></button>
-                                <div class="agree-panel privacy-consent" id="panel-3" aria-hidden="true">
-                                    <h2 class="sr-only">앱 PUSH 수신 동의 안내</h2>
-
-                                    <ol>
-                                        <li>
-                                            <h3>수집·이용의 목적</h3>
-                                            <ul>
-                                                <li>이벤트 경품 제공</li>
-                                            </ul>
-                                        </li>
-
-                                        <li>
-                                            <h3>수집·이용 항목</h3>
-                                            <ul>
-                                                <li><strong>필수적 정보</strong>: 이름, 휴대폰 번호</li>
-                                            </ul>
-                                        </li>
-
-                                        <li>
-                                            <h3>보유·이용 기간</h3>
-                                            <p>
-                                                수집한 개인정보는 수집·이용에 관한 동의 일로부터 수집·이용 목적 달성 전까지
-                                                또는 귀하가 동의를 철회할 때까지 보유·이용됩니다.
-                                            </p>
-                                        </li>
-
-                                        <li>
-                                            <h3>동의 거부권 및 불이익</h3>
-                                            <p>
-                                                귀하는 위와 같은 정보의 수집·이용을 거부할 수 있습니다. 다만, 필수적 수집·이용에
-                                                관하여 동의하지 않을 경우, 이벤트 당첨이 불가능할 수 있습니다.
-                                            </p>
                                         </li>
                                     </ol>
                                 </div>
                             </li>
                         </ul>
                         <!-- 확인 버튼 -->
-                        <button id="agreeBtn" class="btn-disabled">응모하기</button>
+                        <button id="agreeBtn" class="btn-disabled"
+                            onclick="openPopup('증명서 제출을 \n 먼저 완료해 주세요', '','이어서 제출하기' )">응모하기</button>
+                    </div>
+                    <div id="popup" class="popup-overlay">
+                        <div class="popup-content">
+                            <h2 id="popup-tit"></h2>
+                            <p id="popupMessage"></p>
+                            <button id="closePopupBtn">닫기</button>
+                        </div>
                     </div>
                     <script>
                         $(function () {
@@ -180,7 +110,7 @@
                                 const panelId = $btn.attr("aria-controls");
                                 const $panel = $("#" + panelId);
 
-                                // 진행 중 애니메이션 중 제거
+                                // 진행 중 애니메이션 큐 제거
                                 $(".agree-panel").stop(true, true);
 
                                 if ($panel.is(":visible")) {
@@ -224,11 +154,43 @@
                             updateButton(); // 초기 상태 반영
                         });
 
+                        // 팝업 열기 0912추가
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const closePopupBtn = document.getElementById('closePopupBtn');
+                            const popup = document.getElementById('popup');
+                            const popupTitle = document.getElementById('popup-tit');
+                            const popupMessage = document.getElementById('popupMessage');
+
+                            // 팝업 닫기 함수
+                            function closePopup() {
+                                popup.style.display = 'none';
+                            }
+
+                            // 팝업 열기 함수 (title, message, buttonText를 인자로 받음)
+                            window.openPopup = function (message, title = '알림', buttonText = '닫기') {
+                                popupTitle.textContent = title;
+                                popupMessage.textContent = message;
+                                popupMessage.style.whiteSpace = "pre-line";
+                                closePopupBtn.textContent = buttonText; // 버튼 텍스트 변경
+                                popup.style.display = 'flex';
+                            };
+
+                            // 닫기 버튼 클릭 시 팝업 닫기
+                            closePopupBtn.addEventListener('click', closePopup);
+
+                            // 팝업 외부 클릭 시 팝업 닫기
+                            popup.addEventListener('click', function (event) {
+                                if (event.target === popup) {
+                                    closePopup();
+                                }
+                            });
+                        });
                     </script>
+
                 </div>
 
                 <div class="woori_landing_contents_inner" style="background-color: #fff;">
-                    <img src="./img/ki_4.png" alt="">
+                    <img src="./static/img/ki_02_04.png" alt="">
 
                 </div>
             </div>

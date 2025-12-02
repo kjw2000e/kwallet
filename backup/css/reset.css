@@ -140,9 +140,36 @@ p{
 
 @font-face {
     font-family: 'Pretendard';
-    src: url("../font/PretendardVariable.woff2") format("woff");
+    font-style: normal;
+    font-weight: 400;
+    src: url("../font/woff/Pretendard-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-style: medium;
+    font-weight: 500;
+    src: url("../font/woff/Pretendard-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-style: semibold;
+    font-weight: 600;
+    src: url("../font/woff/Pretendard-SemiBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-style: bold;
+    font-weight: 700;
+    src: url("../font/woff/Pretendard-Bold.woff") format("woff");
 }
 @font-face {
-    font-family: 'DAKI';
-    src: url("../font/optimized_daki_b.woff2") format("woff");
+    font-family: 'Pretendard';
+    font-style: black;
+    font-weight: 900;
+    src: url("../font/woff/Pretendard-Black.ttf") format("ttf");
 }
+
+
